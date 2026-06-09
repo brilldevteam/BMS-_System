@@ -111,7 +111,26 @@ CLIENT_ORIGIN=http://localhost:5173
 
 ## Run
 
-Run backend:
+Before starting the application, make sure the local PostgreSQL service is running and
+`backend/.env` contains a valid `DATABASE_URL`.
+
+Run the frontend and backend together from the project root:
+
+```bash
+npm run dev
+```
+
+This starts:
+
+```text
+Frontend: http://localhost:5173
+Backend:  http://localhost:5000
+Health:   http://localhost:5000/api/health
+```
+
+Press `Ctrl+C` once to stop both processes.
+
+To run either server separately, use:
 
 ```bash
 npm run dev:backend
@@ -122,8 +141,6 @@ Backend default:
 ```text
 http://localhost:5000
 ```
-
-Run frontend:
 
 ```bash
 npm run dev:frontend
