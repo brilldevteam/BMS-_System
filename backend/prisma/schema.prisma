@@ -1,0 +1,125 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Role {
+  id          String   @id @default(uuid())
+  name        String   @unique
+  description String?
+  permissions Json?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  users User[]
+}
+
+model User {
+  id          String   @id @default(uuid())
+  fullName    String
+  email       String   @unique
+  password    String?
+  department  String?
+  avatar      String?
+  status      String   @default("Active")
+  permissions Json?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  roleId String?
+  role   Role?   @relation(fields: [roleId], references: [id], onDelete: SetNull)
+
+  jobsAssigned       Job[]
+  uploadedDocuments  Document[]          @relation("UploadedDocuments")
+  complianceSections ComplianceSection[]
+}
+
+model Service {
+  id            String   @id @default(uuid())
+  title         String
+  description   String
+  status        String   @default("Active")
+  category      String
+  departments   String[] @default([])
+  assignedRoles String[] @default([])
+  usageCount    Int      @default(0)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  jobs Job[]
+}
+
+model Job {
+  id                 String   @id @default(uuid())
+  jobNumber          String   @unique
+  serviceType        String
+  assignedPerson     String?
+  jobDetails         String
+  specialDescription String?
+  clientName         String
+  email              String
+  startingPoint      String
+  ckNumber           String?
+  contactNumber      String?
+  address            String?
+  status             String   @default("Created")
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
+
+  assignedUserId String?
+  assignedUser   User?   @relation(fields: [assignedUserId], references: [id], onDelete: SetNull)
+
+  serviceId String?
+  service   Service? @relation(fields: [serviceId], references: [id], onDelete: SetNull)
+
+  documents Document[]
+}
+
+model ComplianceSection {
+  id          String   @id @default(uuid())
+  title       String
+  description String?
+  type        String   @default("standard")
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  userId String
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  documents Document[]
+}
+
+model Document {
+  id           String   @id @default(uuid())
+  fileName     String
+  originalName String
+  fileType     String
+  fileSize     Int
+  filePath     String
+  uploadedBy   String?
+  category     String?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  uploadedByUserId String?
+  uploadedByUser   User?   @relation("UploadedDocuments", fields: [uploadedByUserId], references: [id], onDelete: SetNull)
+
+  jobId String?
+  job   Job?    @relation(fields: [jobId], references: [id], onDelete: Cascade)
+
+  complianceSectionId String?
+  complianceSection   ComplianceSection? @relation(fields: [complianceSectionId], references: [id], onDelete: Cascade)
+
+  reportGroupId     String?
+  reportCompany     String?
+  reportYear        String?
+  reportDescription String?
+
+  @@index([jobId])
+  @@index([complianceSectionId])
+  @@index([reportGroupId])
+}

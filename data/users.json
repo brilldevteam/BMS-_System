@@ -1,0 +1,1796 @@
+[
+  {
+    "id": "seed-user-1",
+    "name": "n",
+    "role": "admin",
+    "permissions": {
+      "companyDetails": {
+        "edit": true,
+        "view": true
+      },
+      "directorDetails": {
+        "edit": true,
+        "view": true
+      },
+      "secretaryDetails": {
+        "edit": true,
+        "view": true
+      },
+      "shareholderDetails": {
+        "edit": true,
+        "view": true
+      },
+      "sefDetails": {
+        "edit": true,
+        "view": true
+      },
+      "signedKyc": {
+        "edit": true,
+        "view": true
+      },
+      "paymentDetails": {
+        "edit": true,
+        "view": true
+      },
+      "auditedFinancial": {
+        "edit": true,
+        "view": true
+      },
+      "kycLmro": {
+        "enabled": true
+      },
+      "kycDmlro": {
+        "enabled": true
+      },
+      "kycCeo": {
+        "enabled": true
+      },
+      "braLmro": {
+        "enabled": true
+      },
+      "braCeo": {
+        "enabled": true
+      },
+      "resources": {
+        "enabled": true
+      },
+      "documentManagement": {
+        "enabled": true
+      },
+      "renewalManagement": {
+        "enabled": true
+      },
+      "complianceManagement": {
+        "enabled": true
+      },
+      "requestService": {
+        "enabled": true
+      },
+      "userManagement": {
+        "enabled": true
+      },
+      "operationManagement": {
+        "enabled": true
+      },
+      "accountManagement": {
+        "enabled": true
+      }
+    }
+  },
+  {
+    "id": "seed-user-2",
+    "name": "chamudi",
+    "role": "admin",
+    "permissions": {
+      "companyDetails": {
+        "edit": true,
+        "view": true
+      },
+      "directorDetails": {
+        "edit": true,
+        "view": true
+      },
+      "secretaryDetails": {
+        "edit": true,
+        "view": true
+      },
+      "shareholderDetails": {
+        "edit": true,
+        "view": true
+      },
+      "sefDetails": {
+        "edit": true,
+        "view": true
+      },
+      "signedKyc": {
+        "edit": true,
+        "view": true
+      },
+      "paymentDetails": {
+        "edit": true,
+        "view": true
+      },
+      "auditedFinancial": {
+        "edit": true,
+        "view": true
+      },
+      "kycLmro": {
+        "enabled": true
+      },
+      "kycDmlro": {
+        "enabled": true
+      },
+      "kycCeo": {
+        "enabled": true
+      },
+      "braLmro": {
+        "enabled": true
+      },
+      "braCeo": {
+        "enabled": true
+      },
+      "resources": {
+        "enabled": true
+      },
+      "documentManagement": {
+        "enabled": true
+      },
+      "renewalManagement": {
+        "enabled": true
+      },
+      "complianceManagement": {
+        "enabled": true
+      },
+      "requestService": {
+        "enabled": true
+      },
+      "userManagement": {
+        "enabled": true
+      },
+      "operationManagement": {
+        "enabled": true
+      },
+      "accountManagement": {
+        "enabled": true
+      }
+    }
+  },
+  {
+    "id": "seed-user-3",
+    "name": "Nimesha Madushani",
+    "role": "Operation Management",
+    "permissions": {
+      "companyDetails": {
+        "edit": true,
+        "view": true
+      },
+      "directorDetails": {
+        "edit": true,
+        "view": true
+      },
+      "secretaryDetails": {
+        "edit": false,
+        "view": true
+      },
+      "shareholderDetails": {
+        "edit": false,
+        "view": true
+      },
+      "sefDetails": {
+        "edit": false,
+        "view": true
+      },
+      "signedKyc": {
+        "edit": false,
+        "view": true
+      },
+      "paymentDetails": {
+        "edit": false,
+        "view": true
+      },
+      "auditedFinancial": {
+        "edit": true,
+        "view": true
+      },
+      "kycLmro": {
+        "enabled": false
+      },
+      "kycDmlro": {
+        "enabled": false
+      },
+      "kycCeo": {
+        "enabled": false
+      },
+      "braLmro": {
+        "enabled": false
+      },
+      "braCeo": {
+        "enabled": false
+      },
+      "resources": {
+        "enabled": true
+      },
+      "documentManagement": {
+        "enabled": true
+      },
+      "renewalManagement": {
+        "enabled": false
+      },
+      "complianceManagement": {
+        "enabled": true
+      },
+      "requestService": {
+        "enabled": true
+      },
+      "userManagement": {
+        "enabled": false
+      },
+      "operationManagement": {
+        "enabled": true
+      },
+      "accountManagement": {
+        "enabled": false
+      }
+    }
+  },
+  {
+    "id": "seed-user-4",
+    "name": "Lashini Dissanayake",
+    "role": "Compliance Management",
+    "permissions": {
+      "companyDetails": {
+        "edit": true,
+        "view": true
+      },
+      "directorDetails": {
+        "edit": false,
+        "view": true
+      },
+      "secretaryDetails": {
+        "edit": true,
+        "view": true
+      },
+      "shareholderDetails": {
+        "edit": false,
+        "view": true
+      },
+      "sefDetails": {
+        "edit": true,
+        "view": true
+      },
+      "signedKyc": {
+        "edit": true,
+        "view": true
+      },
+      "paymentDetails": {
+        "edit": false,
+        "view": true
+      },
+      "auditedFinancial": {
+        "edit": false,
+        "view": true
+      },
+      "kycLmro": {
+        "enabled": true
+      },
+      "kycDmlro": {
+        "enabled": false
+      },
+      "kycCeo": {
+        "enabled": false
+      },
+      "braLmro": {
+        "enabled": true
+      },
+      "braCeo": {
+        "enabled": false
+      },
+      "resources": {
+        "enabled": false
+      },
+      "documentManagement": {
+        "enabled": false
+      },
+      "renewalManagement": {
+        "enabled": true
+      },
+      "complianceManagement": {
+        "enabled": false
+      },
+      "requestService": {
+        "enabled": true
+      },
+      "userManagement": {
+        "enabled": false
+      },
+      "operationManagement": {
+        "enabled": false
+      },
+      "accountManagement": {
+        "enabled": false
+      }
+    }
+  },
+  {
+    "id": "seed-user-5",
+    "name": "Thilanka Lakmali",
+    "role": "Accounting",
+    "permissions": {
+      "companyDetails": {
+        "edit": false,
+        "view": true
+      },
+      "directorDetails": {
+        "edit": true,
+        "view": true
+      },
+      "secretaryDetails": {
+        "edit": true,
+        "view": true
+      },
+      "shareholderDetails": {
+        "edit": true,
+        "view": true
+      },
+      "sefDetails": {
+        "edit": false,
+        "view": true
+      },
+      "signedKyc": {
+        "edit": false,
+        "view": true
+      },
+      "paymentDetails": {
+        "edit": true,
+        "view": true
+      },
+      "auditedFinancial": {
+        "edit": true,
+        "view": true
+      },
+      "kycLmro": {
+        "enabled": false
+      },
+      "kycDmlro": {
+        "enabled": true
+      },
+      "kycCeo": {
+        "enabled": false
+      },
+      "braLmro": {
+        "enabled": false
+      },
+      "braCeo": {
+        "enabled": false
+      },
+      "resources": {
+        "enabled": false
+      },
+      "documentManagement": {
+        "enabled": true
+      },
+      "renewalManagement": {
+        "enabled": false
+      },
+      "complianceManagement": {
+        "enabled": true
+      },
+      "requestService": {
+        "enabled": false
+      },
+      "userManagement": {
+        "enabled": true
+      },
+      "operationManagement": {
+        "enabled": true
+      },
+      "accountManagement": {
+        "enabled": false
+      }
+    }
+  },
+  {
+    "id": "seed-user-6",
+    "name": "Kaveena Perera",
+    "role": "Accounting",
+    "permissions": {
+      "companyDetails": {
+        "edit": true,
+        "view": true
+      },
+      "directorDetails": {
+        "edit": false,
+        "view": true
+      },
+      "secretaryDetails": {
+        "edit": false,
+        "view": true
+      },
+      "shareholderDetails": {
+        "edit": false,
+        "view": true
+      },
+      "sefDetails": {
+        "edit": true,
+        "view": true
+      },
+      "signedKyc": {
+        "edit": false,
+        "view": true
+      },
+      "paymentDetails": {
+        "edit": false,
+        "view": true
+      },
+      "auditedFinancial": {
+        "edit": false,
+        "view": true
+      },
+      "kycLmro": {
+        "enabled": false
+      },
+      "kycDmlro": {
+        "enabled": false
+      },
+      "kycCeo": {
+        "enabled": true
+      },
+      "braLmro": {
+        "enabled": false
+      },
+      "braCeo": {
+        "enabled": true
+      },
+      "resources": {
+        "enabled": false
+      },
+      "documentManagement": {
+        "enabled": false
+      },
+      "renewalManagement": {
+        "enabled": false
+      },
+      "complianceManagement": {
+        "enabled": false
+      },
+      "requestService": {
+        "enabled": true
+      },
+      "userManagement": {
+        "enabled": false
+      },
+      "operationManagement": {
+        "enabled": false
+      },
+      "accountManagement": {
+        "enabled": true
+      }
+    }
+  },
+  {
+    "id": "seed-user-7",
+    "name": "Sarah Kumara",
+    "role": "CEO",
+    "permissions": {
+      "companyDetails": {
+        "edit": true,
+        "view": true
+      },
+      "directorDetails": {
+        "edit": true,
+        "view": true
+      },
+      "secretaryDetails": {
+        "edit": true,
+        "view": true
+      },
+      "shareholderDetails": {
+        "edit": false,
+        "view": true
+      },
+      "sefDetails": {
+        "edit": false,
+        "view": true
+      },
+      "signedKyc": {
+        "edit": true,
+        "view": true
+      },
+      "paymentDetails": {
+        "edit": false,
+        "view": true
+      },
+      "auditedFinancial": {
+        "edit": true,
+        "view": true
+      },
+      "kycLmro": {
+        "enabled": true
+      },
+      "kycDmlro": {
+        "enabled": false
+      },
+      "kycCeo": {
+        "enabled": false
+      },
+      "braLmro": {
+        "enabled": true
+      },
+      "braCeo": {
+        "enabled": false
+      },
+      "resources": {
+        "enabled": true
+      },
+      "documentManagement": {
+        "enabled": true
+      },
+      "renewalManagement": {
+        "enabled": true
+      },
+      "complianceManagement": {
+        "enabled": true
+      },
+      "requestService": {
+        "enabled": true
+      },
+      "userManagement": {
+        "enabled": false
+      },
+      "operationManagement": {
+        "enabled": true
+      },
+      "accountManagement": {
+        "enabled": false
+      }
+    }
+  },
+  {
+    "id": "seed-user-8",
+    "name": "Sithari Kanishka",
+    "role": "Accounting",
+    "permissions": {
+      "companyDetails": {
+        "edit": false,
+        "view": true
+      },
+      "directorDetails": {
+        "edit": false,
+        "view": true
+      },
+      "secretaryDetails": {
+        "edit": true,
+        "view": true
+      },
+      "shareholderDetails": {
+        "edit": false,
+        "view": true
+      },
+      "sefDetails": {
+        "edit": true,
+        "view": true
+      },
+      "signedKyc": {
+        "edit": false,
+        "view": true
+      },
+      "paymentDetails": {
+        "edit": true,
+        "view": true
+      },
+      "auditedFinancial": {
+        "edit": false,
+        "view": true
+      },
+      "kycLmro": {
+        "enabled": false
+      },
+      "kycDmlro": {
+        "enabled": false
+      },
+      "kycCeo": {
+        "enabled": false
+      },
+      "braLmro": {
+        "enabled": false
+      },
+      "braCeo": {
+        "enabled": false
+      },
+      "resources": {
+        "enabled": false
+      },
+      "documentManagement": {
+        "enabled": false
+      },
+      "renewalManagement": {
+        "enabled": false
+      },
+      "complianceManagement": {
+        "enabled": false
+      },
+      "requestService": {
+        "enabled": false
+      },
+      "userManagement": {
+        "enabled": false
+      },
+      "operationManagement": {
+        "enabled": false
+      },
+      "accountManagement": {
+        "enabled": false
+      }
+    }
+  },
+  {
+    "id": "seed-user-9",
+    "name": "Hashini Vithanagama",
+    "role": "Accounting",
+    "permissions": {
+      "companyDetails": {
+        "edit": true,
+        "view": true
+      },
+      "directorDetails": {
+        "edit": true,
+        "view": true
+      },
+      "secretaryDetails": {
+        "edit": false,
+        "view": true
+      },
+      "shareholderDetails": {
+        "edit": true,
+        "view": true
+      },
+      "sefDetails": {
+        "edit": false,
+        "view": true
+      },
+      "signedKyc": {
+        "edit": false,
+        "view": true
+      },
+      "paymentDetails": {
+        "edit": false,
+        "view": true
+      },
+      "auditedFinancial": {
+        "edit": true,
+        "view": true
+      },
+      "kycLmro": {
+        "enabled": false
+      },
+      "kycDmlro": {
+        "enabled": true
+      },
+      "kycCeo": {
+        "enabled": false
+      },
+      "braLmro": {
+        "enabled": false
+      },
+      "braCeo": {
+        "enabled": false
+      },
+      "resources": {
+        "enabled": false
+      },
+      "documentManagement": {
+        "enabled": true
+      },
+      "renewalManagement": {
+        "enabled": false
+      },
+      "complianceManagement": {
+        "enabled": true
+      },
+      "requestService": {
+        "enabled": true
+      },
+      "userManagement": {
+        "enabled": true
+      },
+      "operationManagement": {
+        "enabled": true
+      },
+      "accountManagement": {
+        "enabled": false
+      }
+    }
+  },
+  {
+    "id": "seed-user-10",
+    "name": "Iresha Sadamali",
+    "role": "Accounting",
+    "permissions": {
+      "companyDetails": {
+        "edit": true,
+        "view": true
+      },
+      "directorDetails": {
+        "edit": false,
+        "view": true
+      },
+      "secretaryDetails": {
+        "edit": true,
+        "view": true
+      },
+      "shareholderDetails": {
+        "edit": false,
+        "view": true
+      },
+      "sefDetails": {
+        "edit": true,
+        "view": true
+      },
+      "signedKyc": {
+        "edit": true,
+        "view": true
+      },
+      "paymentDetails": {
+        "edit": false,
+        "view": true
+      },
+      "auditedFinancial": {
+        "edit": false,
+        "view": true
+      },
+      "kycLmro": {
+        "enabled": true
+      },
+      "kycDmlro": {
+        "enabled": false
+      },
+      "kycCeo": {
+        "enabled": false
+      },
+      "braLmro": {
+        "enabled": true
+      },
+      "braCeo": {
+        "enabled": false
+      },
+      "resources": {
+        "enabled": false
+      },
+      "documentManagement": {
+        "enabled": false
+      },
+      "renewalManagement": {
+        "enabled": true
+      },
+      "complianceManagement": {
+        "enabled": false
+      },
+      "requestService": {
+        "enabled": true
+      },
+      "userManagement": {
+        "enabled": false
+      },
+      "operationManagement": {
+        "enabled": false
+      },
+      "accountManagement": {
+        "enabled": false
+      }
+    }
+  },
+  {
+    "id": "seed-user-11",
+    "name": "Chamali Sapunsara",
+    "role": "Operation Management",
+    "permissions": {
+      "companyDetails": {
+        "edit": false,
+        "view": true
+      },
+      "directorDetails": {
+        "edit": true,
+        "view": true
+      },
+      "secretaryDetails": {
+        "edit": true,
+        "view": true
+      },
+      "shareholderDetails": {
+        "edit": false,
+        "view": true
+      },
+      "sefDetails": {
+        "edit": false,
+        "view": true
+      },
+      "signedKyc": {
+        "edit": false,
+        "view": true
+      },
+      "paymentDetails": {
+        "edit": true,
+        "view": true
+      },
+      "auditedFinancial": {
+        "edit": true,
+        "view": true
+      },
+      "kycLmro": {
+        "enabled": false
+      },
+      "kycDmlro": {
+        "enabled": false
+      },
+      "kycCeo": {
+        "enabled": true
+      },
+      "braLmro": {
+        "enabled": false
+      },
+      "braCeo": {
+        "enabled": true
+      },
+      "resources": {
+        "enabled": true
+      },
+      "documentManagement": {
+        "enabled": true
+      },
+      "renewalManagement": {
+        "enabled": false
+      },
+      "complianceManagement": {
+        "enabled": true
+      },
+      "requestService": {
+        "enabled": false
+      },
+      "userManagement": {
+        "enabled": false
+      },
+      "operationManagement": {
+        "enabled": true
+      },
+      "accountManagement": {
+        "enabled": true
+      }
+    }
+  },
+  {
+    "id": "seed-user-12",
+    "name": "Pavithra Madhubhashini",
+    "role": "Accounting",
+    "permissions": {
+      "companyDetails": {
+        "edit": true,
+        "view": true
+      },
+      "directorDetails": {
+        "edit": false,
+        "view": true
+      },
+      "secretaryDetails": {
+        "edit": false,
+        "view": true
+      },
+      "shareholderDetails": {
+        "edit": false,
+        "view": true
+      },
+      "sefDetails": {
+        "edit": true,
+        "view": true
+      },
+      "signedKyc": {
+        "edit": false,
+        "view": true
+      },
+      "paymentDetails": {
+        "edit": false,
+        "view": true
+      },
+      "auditedFinancial": {
+        "edit": false,
+        "view": true
+      },
+      "kycLmro": {
+        "enabled": false
+      },
+      "kycDmlro": {
+        "enabled": false
+      },
+      "kycCeo": {
+        "enabled": false
+      },
+      "braLmro": {
+        "enabled": false
+      },
+      "braCeo": {
+        "enabled": false
+      },
+      "resources": {
+        "enabled": false
+      },
+      "documentManagement": {
+        "enabled": false
+      },
+      "renewalManagement": {
+        "enabled": false
+      },
+      "complianceManagement": {
+        "enabled": false
+      },
+      "requestService": {
+        "enabled": true
+      },
+      "userManagement": {
+        "enabled": false
+      },
+      "operationManagement": {
+        "enabled": false
+      },
+      "accountManagement": {
+        "enabled": false
+      }
+    }
+  },
+  {
+    "id": "seed-user-13",
+    "name": "Priyanka",
+    "role": "admin",
+    "permissions": {
+      "companyDetails": {
+        "edit": true,
+        "view": true
+      },
+      "directorDetails": {
+        "edit": true,
+        "view": true
+      },
+      "secretaryDetails": {
+        "edit": true,
+        "view": true
+      },
+      "shareholderDetails": {
+        "edit": true,
+        "view": true
+      },
+      "sefDetails": {
+        "edit": true,
+        "view": true
+      },
+      "signedKyc": {
+        "edit": true,
+        "view": true
+      },
+      "paymentDetails": {
+        "edit": true,
+        "view": true
+      },
+      "auditedFinancial": {
+        "edit": true,
+        "view": true
+      },
+      "kycLmro": {
+        "enabled": true
+      },
+      "kycDmlro": {
+        "enabled": true
+      },
+      "kycCeo": {
+        "enabled": true
+      },
+      "braLmro": {
+        "enabled": true
+      },
+      "braCeo": {
+        "enabled": true
+      },
+      "resources": {
+        "enabled": true
+      },
+      "documentManagement": {
+        "enabled": true
+      },
+      "renewalManagement": {
+        "enabled": true
+      },
+      "complianceManagement": {
+        "enabled": true
+      },
+      "requestService": {
+        "enabled": true
+      },
+      "userManagement": {
+        "enabled": true
+      },
+      "operationManagement": {
+        "enabled": true
+      },
+      "accountManagement": {
+        "enabled": true
+      }
+    }
+  },
+  {
+    "id": "seed-user-14",
+    "name": "Test",
+    "role": "admin",
+    "permissions": {
+      "companyDetails": {
+        "edit": true,
+        "view": true
+      },
+      "directorDetails": {
+        "edit": true,
+        "view": true
+      },
+      "secretaryDetails": {
+        "edit": true,
+        "view": true
+      },
+      "shareholderDetails": {
+        "edit": true,
+        "view": true
+      },
+      "sefDetails": {
+        "edit": true,
+        "view": true
+      },
+      "signedKyc": {
+        "edit": true,
+        "view": true
+      },
+      "paymentDetails": {
+        "edit": true,
+        "view": true
+      },
+      "auditedFinancial": {
+        "edit": true,
+        "view": true
+      },
+      "kycLmro": {
+        "enabled": true
+      },
+      "kycDmlro": {
+        "enabled": true
+      },
+      "kycCeo": {
+        "enabled": true
+      },
+      "braLmro": {
+        "enabled": true
+      },
+      "braCeo": {
+        "enabled": true
+      },
+      "resources": {
+        "enabled": true
+      },
+      "documentManagement": {
+        "enabled": true
+      },
+      "renewalManagement": {
+        "enabled": true
+      },
+      "complianceManagement": {
+        "enabled": true
+      },
+      "requestService": {
+        "enabled": true
+      },
+      "userManagement": {
+        "enabled": true
+      },
+      "operationManagement": {
+        "enabled": true
+      },
+      "accountManagement": {
+        "enabled": true
+      }
+    }
+  },
+  {
+    "id": "seed-user-15",
+    "name": "Janani Kaveesha",
+    "role": "Compliance Management",
+    "permissions": {
+      "companyDetails": {
+        "edit": true,
+        "view": true
+      },
+      "directorDetails": {
+        "edit": true,
+        "view": true
+      },
+      "secretaryDetails": {
+        "edit": false,
+        "view": true
+      },
+      "shareholderDetails": {
+        "edit": false,
+        "view": true
+      },
+      "sefDetails": {
+        "edit": false,
+        "view": true
+      },
+      "signedKyc": {
+        "edit": false,
+        "view": true
+      },
+      "paymentDetails": {
+        "edit": false,
+        "view": true
+      },
+      "auditedFinancial": {
+        "edit": true,
+        "view": true
+      },
+      "kycLmro": {
+        "enabled": false
+      },
+      "kycDmlro": {
+        "enabled": false
+      },
+      "kycCeo": {
+        "enabled": false
+      },
+      "braLmro": {
+        "enabled": false
+      },
+      "braCeo": {
+        "enabled": false
+      },
+      "resources": {
+        "enabled": true
+      },
+      "documentManagement": {
+        "enabled": true
+      },
+      "renewalManagement": {
+        "enabled": false
+      },
+      "complianceManagement": {
+        "enabled": true
+      },
+      "requestService": {
+        "enabled": true
+      },
+      "userManagement": {
+        "enabled": false
+      },
+      "operationManagement": {
+        "enabled": true
+      },
+      "accountManagement": {
+        "enabled": false
+      }
+    }
+  },
+  {
+    "id": "seed-user-16",
+    "name": "Poornima Nilmini",
+    "role": "Accounting",
+    "permissions": {
+      "companyDetails": {
+        "edit": true,
+        "view": true
+      },
+      "directorDetails": {
+        "edit": false,
+        "view": true
+      },
+      "secretaryDetails": {
+        "edit": true,
+        "view": true
+      },
+      "shareholderDetails": {
+        "edit": false,
+        "view": true
+      },
+      "sefDetails": {
+        "edit": true,
+        "view": true
+      },
+      "signedKyc": {
+        "edit": true,
+        "view": true
+      },
+      "paymentDetails": {
+        "edit": false,
+        "view": true
+      },
+      "auditedFinancial": {
+        "edit": false,
+        "view": true
+      },
+      "kycLmro": {
+        "enabled": true
+      },
+      "kycDmlro": {
+        "enabled": false
+      },
+      "kycCeo": {
+        "enabled": true
+      },
+      "braLmro": {
+        "enabled": true
+      },
+      "braCeo": {
+        "enabled": true
+      },
+      "resources": {
+        "enabled": false
+      },
+      "documentManagement": {
+        "enabled": false
+      },
+      "renewalManagement": {
+        "enabled": true
+      },
+      "complianceManagement": {
+        "enabled": false
+      },
+      "requestService": {
+        "enabled": true
+      },
+      "userManagement": {
+        "enabled": false
+      },
+      "operationManagement": {
+        "enabled": false
+      },
+      "accountManagement": {
+        "enabled": true
+      }
+    }
+  },
+  {
+    "id": "seed-user-17",
+    "name": "Minerva Kumari",
+    "role": "Compliance Management",
+    "permissions": {
+      "companyDetails": {
+        "edit": false,
+        "view": true
+      },
+      "directorDetails": {
+        "edit": true,
+        "view": true
+      },
+      "secretaryDetails": {
+        "edit": true,
+        "view": true
+      },
+      "shareholderDetails": {
+        "edit": true,
+        "view": true
+      },
+      "sefDetails": {
+        "edit": false,
+        "view": true
+      },
+      "signedKyc": {
+        "edit": false,
+        "view": true
+      },
+      "paymentDetails": {
+        "edit": true,
+        "view": true
+      },
+      "auditedFinancial": {
+        "edit": true,
+        "view": true
+      },
+      "kycLmro": {
+        "enabled": false
+      },
+      "kycDmlro": {
+        "enabled": true
+      },
+      "kycCeo": {
+        "enabled": false
+      },
+      "braLmro": {
+        "enabled": false
+      },
+      "braCeo": {
+        "enabled": false
+      },
+      "resources": {
+        "enabled": false
+      },
+      "documentManagement": {
+        "enabled": true
+      },
+      "renewalManagement": {
+        "enabled": false
+      },
+      "complianceManagement": {
+        "enabled": true
+      },
+      "requestService": {
+        "enabled": false
+      },
+      "userManagement": {
+        "enabled": true
+      },
+      "operationManagement": {
+        "enabled": true
+      },
+      "accountManagement": {
+        "enabled": false
+      }
+    }
+  },
+  {
+    "id": "seed-user-18",
+    "name": "Rashini Suzain",
+    "role": "Operation Management",
+    "permissions": {
+      "companyDetails": {
+        "edit": true,
+        "view": true
+      },
+      "directorDetails": {
+        "edit": false,
+        "view": true
+      },
+      "secretaryDetails": {
+        "edit": false,
+        "view": true
+      },
+      "shareholderDetails": {
+        "edit": false,
+        "view": true
+      },
+      "sefDetails": {
+        "edit": true,
+        "view": true
+      },
+      "signedKyc": {
+        "edit": false,
+        "view": true
+      },
+      "paymentDetails": {
+        "edit": false,
+        "view": true
+      },
+      "auditedFinancial": {
+        "edit": false,
+        "view": true
+      },
+      "kycLmro": {
+        "enabled": false
+      },
+      "kycDmlro": {
+        "enabled": false
+      },
+      "kycCeo": {
+        "enabled": false
+      },
+      "braLmro": {
+        "enabled": false
+      },
+      "braCeo": {
+        "enabled": false
+      },
+      "resources": {
+        "enabled": false
+      },
+      "documentManagement": {
+        "enabled": false
+      },
+      "renewalManagement": {
+        "enabled": false
+      },
+      "complianceManagement": {
+        "enabled": false
+      },
+      "requestService": {
+        "enabled": true
+      },
+      "userManagement": {
+        "enabled": false
+      },
+      "operationManagement": {
+        "enabled": false
+      },
+      "accountManagement": {
+        "enabled": false
+      }
+    }
+  },
+  {
+    "id": "seed-user-19",
+    "name": "Chaminda Jayasinghe",
+    "role": "Senior Executive Function",
+    "permissions": {
+      "companyDetails": {
+        "edit": true,
+        "view": true
+      },
+      "directorDetails": {
+        "edit": true,
+        "view": true
+      },
+      "secretaryDetails": {
+        "edit": true,
+        "view": true
+      },
+      "shareholderDetails": {
+        "edit": false,
+        "view": true
+      },
+      "sefDetails": {
+        "edit": false,
+        "view": true
+      },
+      "signedKyc": {
+        "edit": true,
+        "view": true
+      },
+      "paymentDetails": {
+        "edit": false,
+        "view": true
+      },
+      "auditedFinancial": {
+        "edit": true,
+        "view": true
+      },
+      "kycLmro": {
+        "enabled": true
+      },
+      "kycDmlro": {
+        "enabled": false
+      },
+      "kycCeo": {
+        "enabled": false
+      },
+      "braLmro": {
+        "enabled": true
+      },
+      "braCeo": {
+        "enabled": false
+      },
+      "resources": {
+        "enabled": true
+      },
+      "documentManagement": {
+        "enabled": true
+      },
+      "renewalManagement": {
+        "enabled": true
+      },
+      "complianceManagement": {
+        "enabled": true
+      },
+      "requestService": {
+        "enabled": true
+      },
+      "userManagement": {
+        "enabled": false
+      },
+      "operationManagement": {
+        "enabled": true
+      },
+      "accountManagement": {
+        "enabled": false
+      }
+    }
+  },
+  {
+    "id": "seed-user-20",
+    "name": "Thakshila Madushani",
+    "role": "Accounting",
+    "permissions": {
+      "companyDetails": {
+        "edit": false,
+        "view": true
+      },
+      "directorDetails": {
+        "edit": false,
+        "view": true
+      },
+      "secretaryDetails": {
+        "edit": true,
+        "view": true
+      },
+      "shareholderDetails": {
+        "edit": false,
+        "view": true
+      },
+      "sefDetails": {
+        "edit": true,
+        "view": true
+      },
+      "signedKyc": {
+        "edit": false,
+        "view": true
+      },
+      "paymentDetails": {
+        "edit": true,
+        "view": true
+      },
+      "auditedFinancial": {
+        "edit": false,
+        "view": true
+      },
+      "kycLmro": {
+        "enabled": false
+      },
+      "kycDmlro": {
+        "enabled": false
+      },
+      "kycCeo": {
+        "enabled": false
+      },
+      "braLmro": {
+        "enabled": false
+      },
+      "braCeo": {
+        "enabled": false
+      },
+      "resources": {
+        "enabled": false
+      },
+      "documentManagement": {
+        "enabled": false
+      },
+      "renewalManagement": {
+        "enabled": false
+      },
+      "complianceManagement": {
+        "enabled": false
+      },
+      "requestService": {
+        "enabled": false
+      },
+      "userManagement": {
+        "enabled": false
+      },
+      "operationManagement": {
+        "enabled": false
+      },
+      "accountManagement": {
+        "enabled": false
+      }
+    }
+  },
+  {
+    "id": "seed-user-21",
+    "name": "Prabisha Poudel",
+    "role": "Compliance Management",
+    "permissions": {
+      "companyDetails": {
+        "edit": true,
+        "view": true
+      },
+      "directorDetails": {
+        "edit": true,
+        "view": true
+      },
+      "secretaryDetails": {
+        "edit": false,
+        "view": true
+      },
+      "shareholderDetails": {
+        "edit": true,
+        "view": true
+      },
+      "sefDetails": {
+        "edit": false,
+        "view": true
+      },
+      "signedKyc": {
+        "edit": false,
+        "view": true
+      },
+      "paymentDetails": {
+        "edit": false,
+        "view": true
+      },
+      "auditedFinancial": {
+        "edit": true,
+        "view": true
+      },
+      "kycLmro": {
+        "enabled": false
+      },
+      "kycDmlro": {
+        "enabled": true
+      },
+      "kycCeo": {
+        "enabled": true
+      },
+      "braLmro": {
+        "enabled": false
+      },
+      "braCeo": {
+        "enabled": true
+      },
+      "resources": {
+        "enabled": false
+      },
+      "documentManagement": {
+        "enabled": true
+      },
+      "renewalManagement": {
+        "enabled": false
+      },
+      "complianceManagement": {
+        "enabled": true
+      },
+      "requestService": {
+        "enabled": true
+      },
+      "userManagement": {
+        "enabled": true
+      },
+      "operationManagement": {
+        "enabled": true
+      },
+      "accountManagement": {
+        "enabled": true
+      }
+    }
+  },
+  {
+    "id": "seed-user-22",
+    "name": "Jyoti Kumari Rajak",
+    "role": "Operation Management",
+    "permissions": {
+      "companyDetails": {
+        "edit": true,
+        "view": true
+      },
+      "directorDetails": {
+        "edit": false,
+        "view": true
+      },
+      "secretaryDetails": {
+        "edit": true,
+        "view": true
+      },
+      "shareholderDetails": {
+        "edit": false,
+        "view": true
+      },
+      "sefDetails": {
+        "edit": true,
+        "view": true
+      },
+      "signedKyc": {
+        "edit": true,
+        "view": true
+      },
+      "paymentDetails": {
+        "edit": false,
+        "view": true
+      },
+      "auditedFinancial": {
+        "edit": false,
+        "view": true
+      },
+      "kycLmro": {
+        "enabled": true
+      },
+      "kycDmlro": {
+        "enabled": false
+      },
+      "kycCeo": {
+        "enabled": false
+      },
+      "braLmro": {
+        "enabled": true
+      },
+      "braCeo": {
+        "enabled": false
+      },
+      "resources": {
+        "enabled": false
+      },
+      "documentManagement": {
+        "enabled": false
+      },
+      "renewalManagement": {
+        "enabled": true
+      },
+      "complianceManagement": {
+        "enabled": false
+      },
+      "requestService": {
+        "enabled": true
+      },
+      "userManagement": {
+        "enabled": false
+      },
+      "operationManagement": {
+        "enabled": false
+      },
+      "accountManagement": {
+        "enabled": false
+      }
+    }
+  },
+  {
+    "id": "seed-user-23",
+    "name": "IT Team",
+    "role": "admin",
+    "permissions": {
+      "companyDetails": {
+        "edit": true,
+        "view": true
+      },
+      "directorDetails": {
+        "edit": true,
+        "view": true
+      },
+      "secretaryDetails": {
+        "edit": true,
+        "view": true
+      },
+      "shareholderDetails": {
+        "edit": true,
+        "view": true
+      },
+      "sefDetails": {
+        "edit": true,
+        "view": true
+      },
+      "signedKyc": {
+        "edit": true,
+        "view": true
+      },
+      "paymentDetails": {
+        "edit": true,
+        "view": true
+      },
+      "auditedFinancial": {
+        "edit": true,
+        "view": true
+      },
+      "kycLmro": {
+        "enabled": true
+      },
+      "kycDmlro": {
+        "enabled": true
+      },
+      "kycCeo": {
+        "enabled": true
+      },
+      "braLmro": {
+        "enabled": true
+      },
+      "braCeo": {
+        "enabled": true
+      },
+      "resources": {
+        "enabled": true
+      },
+      "documentManagement": {
+        "enabled": true
+      },
+      "renewalManagement": {
+        "enabled": true
+      },
+      "complianceManagement": {
+        "enabled": true
+      },
+      "requestService": {
+        "enabled": true
+      },
+      "userManagement": {
+        "enabled": true
+      },
+      "operationManagement": {
+        "enabled": true
+      },
+      "accountManagement": {
+        "enabled": true
+      }
+    }
+  }
+]

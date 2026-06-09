@@ -1,0 +1,93 @@
+[
+  {
+    "id": "seed-role-1",
+    "name": "admin",
+    "userCount": 2,
+    "permissions": [],
+    "createdAt": "2026-05-19T00:00:00.000Z"
+  },
+  {
+    "id": "seed-role-2",
+    "name": "External Parties",
+    "userCount": 0,
+    "permissions": [],
+    "createdAt": "2026-05-19T00:00:00.000Z"
+  },
+  {
+    "id": "seed-role-3",
+    "name": "Business Development",
+    "userCount": 1,
+    "permissions": [],
+    "createdAt": "2026-05-19T00:00:00.000Z"
+  },
+  {
+    "id": "seed-role-4",
+    "name": "Compliance Management",
+    "userCount": 1,
+    "permissions": [],
+    "createdAt": "2026-05-19T00:00:00.000Z"
+  },
+  {
+    "id": "seed-role-5",
+    "name": "Accounting",
+    "userCount": 3,
+    "permissions": [],
+    "createdAt": "2026-05-19T00:00:00.000Z"
+  },
+  {
+    "id": "seed-role-6",
+    "name": "Operation Management",
+    "userCount": 1,
+    "permissions": [],
+    "createdAt": "2026-05-19T00:00:00.000Z"
+  },
+  {
+    "id": "seed-role-7",
+    "name": "SSS",
+    "userCount": 0,
+    "permissions": [],
+    "createdAt": "2026-05-19T00:00:00.000Z"
+  },
+  {
+    "id": "seed-role-8",
+    "name": "MLRO",
+    "userCount": 0,
+    "permissions": [],
+    "createdAt": "2026-05-19T00:00:00.000Z"
+  },
+  {
+    "id": "seed-role-9",
+    "name": "CEO",
+    "userCount": 1,
+    "permissions": [],
+    "createdAt": "2026-05-19T00:00:00.000Z"
+  },
+  {
+    "id": "seed-role-10",
+    "name": "DMLRO",
+    "userCount": 0,
+    "permissions": [],
+    "createdAt": "2026-05-19T00:00:00.000Z"
+  },
+  {
+    "id": "seed-role-11",
+    "name": "customer",
+    "userCount": 0,
+    "permissions": [],
+    "createdAt": "2026-05-19T00:00:00.000Z"
+  },
+  {
+    "id": "seed-role-12",
+    "name": "AML Supervisor",
+    "userCount": 0,
+    "permissions": [],
+    "createdAt": "2026-05-19T00:00:00.000Z"
+  },
+  {
+    "id": "seed-role-13",
+    "name": "Senior Executive Function",
+    "userCount": 1,
+    "permissions": [],
+    "createdAt": "2026-05-19T00:00:00.000Z"
+  }
+]

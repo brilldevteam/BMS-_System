@@ -1,0 +1,20 @@
+{
+  "name": "bms-rebuild",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Clean rebuild foundation for the BMS Business Management System.",
+  "scripts": {
+    "dev:frontend": "npm run dev --workspace frontend",
+    "dev:backend": "npm run dev --workspace backend",
+    "build:frontend": "npm run build --workspace frontend",
+    "start:backend": "npm run start --workspace backend"
+  },
+  "workspaces": [
+    "frontend",
+    "backend"
+  ],
+  "engines": {
+    "node": ">=20.0.0",
+    "npm": ">=10.0.0"
+  }
+}

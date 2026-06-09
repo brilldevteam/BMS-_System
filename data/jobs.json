@@ -1,0 +1,30 @@
+[
+  {
+    "id": "96c25f72-0d3a-4787-8667-42b3d8112ebc",
+    "jobNumber": "JOB-2026-001",
+    "serviceType": "New Client Onboarding",
+    "assignedPerson": "Test",
+    "jobDetails": "Test ob",
+    "specialDescription": "Test Job",
+    "clientName": "Aadhil",
+    "email": "web@brillcrew.com",
+    "startingPoint": "Doha",
+    "ckNumber": "123456",
+    "contactNumber": "7733009179",
+    "address": "Doha, Qatar",
+    "documents": {
+      "proposalDocument": {
+        "originalName": "EPRS.docx",
+        "filename": "1779264431573-EPRS.docx",
+        "mimetype": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+        "size": 16128,
+        "path": "D:\\SitePilot AI\\Newoon BMS System\\bms-rebuild\\uploads\\jobs\\1779264431573-EPRS.docx"
+      },
+      "idDocument": null,
+      "otherDocuments": []
+    },
+    "status": "Created",
+    "createdAt": "2026-05-20T08:07:11.579Z",
+    "updatedAt": "2026-05-20T08:07:11.579Z"
+  }
+]

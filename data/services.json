@@ -1,0 +1,272 @@
+[
+  {
+    "id": "seed-service-1",
+    "title": "New Client Onboarding",
+    "description": "Client intake, document collection, and initial setup workflow.",
+    "status": "Inactive",
+    "category": "Client Services",
+    "departments": [
+      "Compliance",
+      "Operations"
+    ],
+    "usageCount": 8,
+    "jobAssignmentCount": 2,
+    "createdAt": "2026-05-19T00:00:00.000Z",
+    "updatedAt": "2026-05-19T00:00:00.000Z"
+  },
+  {
+    "id": "seed-service-2",
+    "title": "Company Formation",
+    "description": "Prepare incorporation documents and coordinate entity setup tasks.",
+    "status": "Active",
+    "category": "Corporate Services",
+    "departments": [
+      "Accounting",
+      "Client Services"
+    ],
+    "usageCount": 11,
+    "jobAssignmentCount": 3,
+    "createdAt": "2026-05-19T00:00:00.000Z",
+    "updatedAt": "2026-05-19T00:00:00.000Z"
+  },
+  {
+    "id": "seed-service-3",
+    "title": "KYC Review",
+    "description": "Review client KYC packs and track compliance approval readiness.",
+    "status": "Active",
+    "category": "Compliance",
+    "departments": [
+      "Corporate Services",
+      "Administration"
+    ],
+    "usageCount": 14,
+    "jobAssignmentCount": 4,
+    "createdAt": "2026-05-19T00:00:00.000Z",
+    "updatedAt": "2026-05-19T00:00:00.000Z"
+  },
+  {
+    "id": "seed-service-4",
+    "title": "BRA Assessment",
+    "description": "Business risk assessment preparation and review service.",
+    "status": "Active",
+    "category": "Compliance",
+    "departments": [
+      "Renewals",
+      "Compliance"
+    ],
+    "usageCount": 17,
+    "jobAssignmentCount": 5,
+    "createdAt": "2026-05-19T00:00:00.000Z",
+    "updatedAt": "2026-05-19T00:00:00.000Z"
+  },
+  {
+    "id": "seed-service-5",
+    "title": "Annual Renewal",
+    "description": "Manage recurring company renewal requirements and document updates.",
+    "status": "Active",
+    "category": "Renewals",
+    "departments": [
+      "Resource Center",
+      "Operations"
+    ],
+    "usageCount": 20,
+    "jobAssignmentCount": 6,
+    "createdAt": "2026-05-19T00:00:00.000Z",
+    "updatedAt": "2026-05-19T00:00:00.000Z"
+  },
+  {
+    "id": "seed-service-6",
+    "title": "Financial Statement Review",
+    "description": "Coordinate annual financial statement collection and review.",
+    "status": "Active",
+    "category": "Accounting",
+    "departments": [
+      "Compliance",
+      "Operations"
+    ],
+    "usageCount": 23,
+    "jobAssignmentCount": 7,
+    "createdAt": "2026-05-19T00:00:00.000Z",
+    "updatedAt": "2026-05-19T00:00:00.000Z"
+  },
+  {
+    "id": "seed-service-7",
+    "title": "Tax Return Coordination",
+    "description": "Track tax return preparation tasks and required supporting files.",
+    "status": "Inactive",
+    "category": "Accounting",
+    "departments": [
+      "Accounting",
+      "Client Services"
+    ],
+    "usageCount": 26,
+    "jobAssignmentCount": 8,
+    "createdAt": "2026-05-19T00:00:00.000Z",
+    "updatedAt": "2026-05-19T00:00:00.000Z"
+  },
+  {
+    "id": "seed-service-8",
+    "title": "Document Certification",
+    "description": "Handle certified document requests and related admin tracking.",
+    "status": "Active",
+    "category": "Administration",
+    "departments": [
+      "Corporate Services",
+      "Administration"
+    ],
+    "usageCount": 29,
+    "jobAssignmentCount": 2,
+    "createdAt": "2026-05-19T00:00:00.000Z",
+    "updatedAt": "2026-05-19T00:00:00.000Z"
+  },
+  {
+    "id": "seed-service-9",
+    "title": "Shareholder Update",
+    "description": "Manage shareholder changes and supporting documentation.",
+    "status": "Active",
+    "category": "Corporate Services",
+    "departments": [
+      "Renewals",
+      "Compliance"
+    ],
+    "usageCount": 32,
+    "jobAssignmentCount": 3,
+    "createdAt": "2026-05-19T00:00:00.000Z",
+    "updatedAt": "2026-05-19T00:00:00.000Z"
+  },
+  {
+    "id": "seed-service-10",
+    "title": "Director Change",
+    "description": "Coordinate director appointment, removal, and registry updates.",
+    "status": "Active",
+    "category": "Corporate Services",
+    "departments": [
+      "Resource Center",
+      "Operations"
+    ],
+    "usageCount": 35,
+    "jobAssignmentCount": 4,
+    "createdAt": "2026-05-19T00:00:00.000Z",
+    "updatedAt": "2026-05-19T00:00:00.000Z"
+  },
+  {
+    "id": "seed-service-11",
+    "title": "Secretary Change",
+    "description": "Manage corporate secretary update requests.",
+    "status": "Active",
+    "category": "Corporate Services",
+    "departments": [
+      "Compliance",
+      "Operations"
+    ],
+    "usageCount": 38,
+    "jobAssignmentCount": 5,
+    "createdAt": "2026-05-19T00:00:00.000Z",
+    "updatedAt": "2026-05-19T00:00:00.000Z"
+  },
+  {
+    "id": "seed-service-12",
+    "title": "Compliance Monitoring",
+    "description": "Ongoing client monitoring and scheduled compliance checks.",
+    "status": "Active",
+    "category": "Compliance",
+    "departments": [
+      "Accounting",
+      "Client Services"
+    ],
+    "usageCount": 41,
+    "jobAssignmentCount": 6,
+    "createdAt": "2026-05-19T00:00:00.000Z",
+    "updatedAt": "2026-05-19T00:00:00.000Z"
+  },
+  {
+    "id": "seed-service-13",
+    "title": "License Renewal",
+    "description": "Track license expiry, renewal documents, and submission status.",
+    "status": "Inactive",
+    "category": "Renewals",
+    "departments": [
+      "Corporate Services",
+      "Administration"
+    ],
+    "usageCount": 44,
+    "jobAssignmentCount": 7,
+    "createdAt": "2026-05-19T00:00:00.000Z",
+    "updatedAt": "2026-05-19T00:00:00.000Z"
+  },
+  {
+    "id": "seed-service-14",
+    "title": "Client Data Update",
+    "description": "Update client profile information and internal records.",
+    "status": "Active",
+    "category": "Client Services",
+    "departments": [
+      "Renewals",
+      "Compliance"
+    ],
+    "usageCount": 47,
+    "jobAssignmentCount": 8,
+    "createdAt": "2026-05-19T00:00:00.000Z",
+    "updatedAt": "2026-05-19T00:00:00.000Z"
+  },
+  {
+    "id": "seed-service-15",
+    "title": "Service Request Review",
+    "description": "Review incoming client service requests before assignment.",
+    "status": "Active",
+    "category": "Operations",
+    "departments": [
+      "Resource Center",
+      "Operations"
+    ],
+    "usageCount": 50,
+    "jobAssignmentCount": 2,
+    "createdAt": "2026-05-19T00:00:00.000Z",
+    "updatedAt": "2026-05-19T00:00:00.000Z"
+  },
+  {
+    "id": "seed-service-16",
+    "title": "Payment Follow Up",
+    "description": "Coordinate payment status checks and follow-up tasks.",
+    "status": "Active",
+    "category": "Accounting",
+    "departments": [
+      "Compliance",
+      "Operations"
+    ],
+    "usageCount": 53,
+    "jobAssignmentCount": 3,
+    "createdAt": "2026-05-19T00:00:00.000Z",
+    "updatedAt": "2026-05-19T00:00:00.000Z"
+  },
+  {
+    "id": "seed-service-17",
+    "title": "Resource Document Update",
+    "description": "Maintain internal templates, guidelines, and reference materials.",
+    "status": "Active",
+    "category": "Resource Center",
+    "departments": [
+      "Accounting",
+      "Client Services"
+    ],
+    "usageCount": 56,
+    "jobAssignmentCount": 4,
+    "createdAt": "2026-05-19T00:00:00.000Z",
+    "updatedAt": "2026-05-19T00:00:00.000Z"
+  },
+  {
+    "id": "seed-service-18",
+    "title": "Archive Review",
+    "description": "Review archived records and document retention requirements.",
+    "status": "Active",
+    "category": "Document Library",
+    "departments": [
+      "Corporate Services",
+      "Administration"
+    ],
+    "usageCount": 59,
+    "jobAssignmentCount": 5,
+    "createdAt": "2026-05-19T00:00:00.000Z",
+    "updatedAt": "2026-05-19T00:00:00.000Z"
+  }
+]
