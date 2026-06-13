@@ -70,6 +70,14 @@ const services = [
   ['Document Certification', 'Handle certified document requests and related admin tracking.', 'Administration']
 ];
 
+const companies = [
+  'Newoon Business Services',
+  'Gulf Horizon Trading',
+  'Blue Axis Consulting',
+  'Palm Bridge Holdings',
+  'Atlas Compliance Group'
+];
+
 async function main() {
   const rolesByName = new Map();
 
@@ -122,6 +130,14 @@ async function main() {
           usageCount: 8 + index * 3
         }
       });
+    }
+  }
+
+  for (const name of companies) {
+    const existingCompany = await prisma.company.findFirst({ where: { name } });
+
+    if (!existingCompany) {
+      await prisma.company.create({ data: { name } });
     }
   }
 }

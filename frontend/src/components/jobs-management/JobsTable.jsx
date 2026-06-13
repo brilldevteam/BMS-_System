@@ -26,14 +26,32 @@ function statusClass(status = 'Created') {
   return 'bg-blue-50 text-blue-700';
 }
 
-const actionButtons = [
-  { label: 'View job', icon: 'eye', color: 'text-slate-500 hover:bg-slate-100 hover:text-slate-800' },
-  { label: 'Edit job', icon: 'edit', color: 'text-blue-600 hover:bg-blue-50 hover:text-blue-700' },
-  { label: 'Assign user', icon: 'userCircle', color: 'text-violet-600 hover:bg-violet-50 hover:text-violet-700' },
-  { label: 'Cancel job', icon: 'blocked', color: 'text-slate-600 hover:bg-slate-100 hover:text-slate-800' }
+const actions = [
+  { key: 'client', label: 'View Client Profile', icon: 'userCircle', color: 'text-violet-600 hover:bg-violet-50 hover:text-violet-700' },
+  { key: 'cancel', label: 'Cancel Job', icon: 'blocked', color: 'text-slate-600 hover:bg-slate-100 hover:text-slate-800' }
 ];
 
-function JobsTable({ jobs, onDeleteJob }) {
+function ActionButton({ label, icon, color, onClick, disabled = false }) {
+  return (
+    <div className="group relative">
+      <button
+        type="button"
+        className={`flex h-9 w-9 items-center justify-center rounded-full transition ${color} disabled:cursor-not-allowed disabled:opacity-35`}
+        onClick={onClick}
+        disabled={disabled}
+        aria-label={label}
+      >
+        <AppIcon name={icon} className="h-[18px] w-[18px]" />
+      </button>
+      <span className="pointer-events-none absolute bottom-full left-1/2 z-20 mb-2 hidden -translate-x-1/2 whitespace-nowrap rounded-md bg-slate-900 px-2.5 py-1.5 text-[11px] font-medium text-white shadow-lg group-hover:block group-focus-within:block">
+        {disabled ? 'Job already cancelled' : label}
+        <span className="absolute left-1/2 top-full -translate-x-1/2 border-4 border-transparent border-t-slate-900" />
+      </span>
+    </div>
+  );
+}
+
+function JobsTable({ jobs, onAction, onEditJob, onDeleteJob }) {
   return (
     <section className="overflow-hidden rounded-xl bg-white shadow-md shadow-slate-200/80">
       <div className="overflow-x-auto">
@@ -117,27 +135,35 @@ function JobsTable({ jobs, onDeleteJob }) {
                     </div>
                   </td>
                   <td className="px-6 py-5">
-                    <div className="flex items-center justify-center gap-2">
-                      {actionButtons.map((action) => (
-                        <button
-                          key={action.label}
-                          className={`flex h-8 w-8 items-center justify-center rounded-full transition ${action.color}`}
-                          type="button"
-                          title={action.label}
-                          aria-label={action.label}
-                        >
-                          <AppIcon name={action.icon} className="h-4 w-4" />
-                        </button>
+                    <div className="flex min-w-[215px] items-center justify-center gap-2">
+                      <ActionButton
+                        label="View Details"
+                        icon="eye"
+                        color="text-slate-500 hover:bg-slate-100 hover:text-slate-800"
+                        onClick={() => onAction('details', job)}
+                      />
+                      <ActionButton
+                        label="Edit Job"
+                        icon="edit"
+                        color="text-blue-600 hover:bg-blue-50 hover:text-blue-700"
+                        onClick={() => onEditJob(job)}
+                      />
+                      {actions.map((action) => (
+                        <ActionButton
+                          key={action.key}
+                          label={action.label}
+                          icon={action.icon}
+                          color={action.color}
+                          onClick={() => onAction(action.key, job)}
+                          disabled={action.key === 'cancel' && job.status === 'Cancelled'}
+                        />
                       ))}
-                      <button
-                        className="flex h-8 w-8 items-center justify-center rounded-full text-rose-600 transition hover:bg-rose-50 hover:text-rose-700"
-                        type="button"
-                        title="Delete job"
-                        aria-label="Delete job"
+                      <ActionButton
+                        label="Delete Job"
+                        icon="trash"
+                        color="text-rose-600 hover:bg-rose-50 hover:text-rose-700"
                         onClick={() => onDeleteJob(job)}
-                      >
-                        <AppIcon name="trash" className="h-4 w-4" />
-                      </button>
+                      />
                     </div>
                   </td>
                 </tr>

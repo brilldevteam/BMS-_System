@@ -123,3 +123,39 @@ model Document {
   @@index([complianceSectionId])
   @@index([reportGroupId])
 }
+
+model Company {
+  id                  Int                  @id @default(autoincrement())
+  name                String               @db.VarChar(255)
+  createdAt           DateTime             @default(now()) @map("created_at")
+  financialStatements FinancialStatement[]
+
+  @@map("companies")
+}
+
+model FinancialStatement {
+  id          Int             @id @default(autoincrement())
+  companyId   Int             @map("company_id")
+  year        Int
+  description String?
+  createdAt   DateTime        @default(now()) @map("created_at")
+  company     Company         @relation(fields: [companyId], references: [id], onDelete: Cascade)
+  files       StatementFile[]
+
+  @@unique([companyId, year])
+  @@map("financial_statements")
+}
+
+model StatementFile {
+  id           Int                @id @default(autoincrement())
+  statementId  Int                @map("statement_id")
+  originalName String             @map("original_name") @db.VarChar(255)
+  storedName   String             @map("stored_name") @db.VarChar(255)
+  filePath     String             @map("file_path")
+  fileType     String?            @map("file_type") @db.VarChar(50)
+  fileSize     BigInt?            @map("file_size")
+  uploadedAt   DateTime           @default(now()) @map("uploaded_at")
+  statement    FinancialStatement @relation(fields: [statementId], references: [id], onDelete: Cascade)
+
+  @@map("statement_files")
+}

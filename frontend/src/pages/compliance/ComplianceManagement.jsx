@@ -19,7 +19,7 @@ const modules = [
     status: '175 Active Clients',
     description:
       'Client onboarding, KYC processes, risk assessments, and ongoing compliance monitoring.',
-    href: '/compliance-management/client',
+    href: '/compliance/clients',
     icon: ShieldCheck,
     accent: 'purple'
   },
@@ -28,7 +28,7 @@ const modules = [
     status: 'Structure Documents',
     description:
       'Manage organizational structure documents, charts, and related compliance documentation.',
-    href: '/compliance-management/structure',
+    href: '/compliance/organizational-structure',
     icon: Building2,
     accent: 'orange'
   }

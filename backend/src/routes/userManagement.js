@@ -1,8 +1,18 @@
 import { Router } from 'express';
 import { hashPassword } from '../lib/password.js';
 import prisma from '../lib/prisma.js';
+import {
+  createLocalRole,
+  createLocalUser,
+  deleteLocalRole,
+  getLocalRoles,
+  getLocalUsers,
+  updateLocalRole,
+  updateLocalUserPermissions
+} from '../lib/userManagementStore.js';
 
 const router = Router();
+const useLocalStore = !process.env.DATABASE_URL;
 
 function buildPermissions(index, elevated = false) {
   const dual = (edit, view = true) => ({ edit: Boolean(edit), view: Boolean(view) });
@@ -64,6 +74,11 @@ function mapUser(user) {
 
 router.get('/roles', async (_request, response) => {
   try {
+    if (useLocalStore) {
+      response.status(200).json({ roles: await getLocalRoles() });
+      return;
+    }
+
     const roles = await prisma.role.findMany({
       include: { _count: { select: { users: true } } },
       orderBy: { createdAt: 'asc' }
@@ -84,6 +99,16 @@ router.post('/roles', async (request, response) => {
   }
 
   try {
+    if (useLocalStore) {
+      const role = await createLocalRole({
+        name: name.trim(),
+        description,
+        permissions
+      });
+      response.status(201).json({ role });
+      return;
+    }
+
     const role = await prisma.role.create({
       data: {
         name: name.trim(),
@@ -106,6 +131,12 @@ router.post('/roles', async (request, response) => {
 
 router.put('/roles/:id', async (request, response) => {
   try {
+    if (useLocalStore) {
+      const role = await updateLocalRole(request.params.id, request.body);
+      response.status(200).json({ role });
+      return;
+    }
+
     const role = await prisma.role.update({
       where: { id: request.params.id },
       data: {
@@ -129,11 +160,22 @@ router.put('/roles/:id', async (request, response) => {
 
 router.delete('/roles/:id', async (request, response) => {
   try {
+    if (useLocalStore) {
+      await deleteLocalRole(request.params.id);
+      response.status(204).send();
+      return;
+    }
+
     await prisma.role.delete({ where: { id: request.params.id } });
     response.status(204).send();
   } catch (error) {
     if (error.code === 'P2025') {
       response.status(404).json({ message: 'Role not found.' });
+      return;
+    }
+
+    if (error.code === 'P2003') {
+      response.status(409).json({ message: 'Role is assigned to users and cannot be deleted.' });
       return;
     }
 
@@ -143,6 +185,11 @@ router.delete('/roles/:id', async (request, response) => {
 
 router.get('/users', async (_request, response) => {
   try {
+    if (useLocalStore) {
+      response.status(200).json({ users: await getLocalUsers() });
+      return;
+    }
+
     const users = await prisma.user.findMany({
       include: { role: true },
       orderBy: { createdAt: 'asc' }
@@ -164,6 +211,21 @@ router.post('/users', async (request, response) => {
   }
 
   try {
+    if (useLocalStore) {
+      const userCount = (await getLocalUsers()).length;
+      const passwordHash = await hashPassword(password);
+      const user = await createLocalUser({
+        fullName: resolvedName.trim(),
+        email: email.trim(),
+        password: passwordHash,
+        department,
+        role,
+        permissions: buildPermissions(userCount, role === 'admin')
+      });
+      response.status(201).json({ user });
+      return;
+    }
+
     const roleRecord = await prisma.role.findUnique({ where: { name: role } });
 
     if (!roleRecord) {
@@ -187,6 +249,11 @@ router.post('/users', async (request, response) => {
 
     response.status(201).json({ user: mapUser(user) });
   } catch (error) {
+    if (error.code === 'P2025') {
+      response.status(400).json({ message: 'Selected role does not exist.' });
+      return;
+    }
+
     if (error.code === 'P2002') {
       response.status(409).json({ message: 'A user with this email already exists.' });
       return;
@@ -205,6 +272,12 @@ router.put('/users/:id/permissions', async (request, response) => {
   }
 
   try {
+    if (useLocalStore) {
+      const user = await updateLocalUserPermissions(request.params.id, permissions);
+      response.status(200).json({ user });
+      return;
+    }
+
     const user = await prisma.user.update({
       where: { id: request.params.id },
       data: { permissions },

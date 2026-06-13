@@ -1,41 +1,121 @@
+import { useEffect, useState } from 'react';
 import ActivityCard from '../components/dashboard/ActivityCard.jsx';
+import AllUsersModal from '../components/dashboard/AllUsersModal.jsx';
 import ChartCard from '../components/dashboard/ChartCard.jsx';
 import ExpiringDocsCard from '../components/dashboard/ExpiringDocsCard.jsx';
 import StatsCard from '../components/dashboard/StatsCard.jsx';
 import DashboardLayout from '../layouts/DashboardLayout.jsx';
+import { getJobs } from '../services/jobsApi.js';
+import { getUsers } from '../services/userManagementApi.js';
 
-const stats = [
-  {
-    title: 'Total Jobs',
-    value: '128',
-    hint: '+12% from last month',
-    icon: 'jobs',
-    tone: { bg: 'bg-blue-100', text: 'text-blue-700' }
-  },
-  {
-    title: 'Total Users',
-    value: '46',
-    hint: '+4 active this week',
-    icon: 'users',
-    tone: { bg: 'bg-violet-100', text: 'text-violet-700' }
-  },
-  {
-    title: 'Online Users',
-    value: '18',
-    hint: 'Currently available',
-    icon: 'online',
-    tone: { bg: 'bg-emerald-100', text: 'text-emerald-700' }
-  },
-  {
-    title: 'Completion Rate',
-    value: '84%',
-    hint: '+6% improvement',
-    icon: 'rate',
-    tone: { bg: 'bg-indigo-100', text: 'text-indigo-700' }
-  }
+const taskCompletionData = {
+  all: [
+    { label: 'Week 1', completed: 18, pending: 5 },
+    { label: 'Week 2', completed: 24, pending: 7 },
+    { label: 'Week 3', completed: 21, pending: 4 },
+    { label: 'Week 4', completed: 27, pending: 6 }
+  ],
+  registration: [
+    { label: 'Week 1', completed: 7, pending: 2 },
+    { label: 'Week 2', completed: 10, pending: 3 },
+    { label: 'Week 3', completed: 8, pending: 1 },
+    { label: 'Week 4', completed: 12, pending: 2 }
+  ],
+  filing: [
+    { label: 'Week 1', completed: 6, pending: 2 },
+    { label: 'Week 2', completed: 8, pending: 2 },
+    { label: 'Week 3', completed: 9, pending: 2 },
+    { label: 'Week 4', completed: 8, pending: 3 }
+  ],
+  licensing: [
+    { label: 'Week 1', completed: 5, pending: 1 },
+    { label: 'Week 2', completed: 6, pending: 2 },
+    { label: 'Week 3', completed: 4, pending: 1 },
+    { label: 'Week 4', completed: 7, pending: 1 }
+  ]
+};
+
+const taskFilterOptions = [
+  { value: 'all', label: 'All Tasks' },
+  { value: 'registration', label: 'Registration' },
+  { value: 'filing', label: 'Filing' },
+  { value: 'licensing', label: 'Licensing' }
 ];
 
 function Dashboard() {
+  const [taskFilter, setTaskFilter] = useState('all');
+  const [users, setUsers] = useState([]);
+  const [jobs, setJobs] = useState([]);
+  const [isJobsLoading, setIsJobsLoading] = useState(true);
+  const [isUsersOpen, setIsUsersOpen] = useState(false);
+  const [isUsersLoading, setIsUsersLoading] = useState(false);
+  const [usersError, setUsersError] = useState('');
+
+  const loadUsers = async () => {
+    setIsUsersLoading(true);
+    setUsersError('');
+
+    try {
+      setUsers(await getUsers());
+    } catch {
+      setUsersError('Unable to load team members. Make sure the backend is running.');
+    } finally {
+      setIsUsersLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    loadUsers();
+    getJobs()
+      .then(setJobs)
+      .catch(() => setJobs([]))
+      .finally(() => setIsJobsLoading(false));
+  }, []);
+
+  const openUsers = () => {
+    setIsUsersOpen(true);
+  };
+
+  const approvedJobs = jobs.filter(
+    (job) => job.status?.toLowerCase() === 'approved'
+  ).length;
+  const completionRate =
+    jobs.length > 0 ? Math.round((approvedJobs / jobs.length) * 100) : 0;
+
+  const stats = [
+    {
+      title: 'Total Jobs',
+      value: isJobsLoading ? '...' : jobs.length,
+      hint: 'View all jobs',
+      icon: 'jobs',
+      href: '/dashboard/all-jobs',
+      tone: { bg: 'bg-blue-100', text: 'text-blue-700' }
+    },
+    {
+      title: 'Total Users',
+      value: isUsersLoading ? '...' : users.length,
+      hint: 'View all team members',
+      icon: 'users',
+      onClick: openUsers,
+      tone: { bg: 'bg-violet-100', text: 'text-violet-700' }
+    },
+    {
+      title: 'Online Users',
+      value: '18',
+      hint: 'Currently available',
+      icon: 'online',
+      tone: { bg: 'bg-emerald-100', text: 'text-emerald-700' }
+    },
+    {
+      title: 'Completion Rate',
+      value: isJobsLoading ? '...' : `${completionRate}%`,
+      hint: `${approvedJobs} of ${jobs.length} jobs approved`,
+      icon: 'rate',
+      href: '/dashboard/all-jobs',
+      tone: { bg: 'bg-indigo-100', text: 'text-indigo-700' }
+    }
+  ];
+
   return (
     <DashboardLayout>
         <main className="mx-auto max-w-[1500px] px-4 py-6 sm:px-6 lg:px-8">
@@ -73,31 +153,45 @@ function Dashboard() {
             ))}
           </section>
 
-          <section className="mt-6 grid grid-cols-1 gap-5 xl:grid-cols-4">
-            <div className="xl:col-span-2">
-              <ChartCard
-                title="Job Trends"
-                subtitle="Monthly job movement placeholder"
-                type="line"
-              />
-            </div>
+          <section className="mt-6 grid grid-cols-1 items-stretch gap-5 xl:grid-cols-2">
+            <ChartCard
+              title="Job Trends"
+              type="line"
+              trendLabel="+15.3% vs last period"
+            />
             <ChartCard
               title="Task Completion"
-              subtitle="Weekly completion placeholder"
-              type="bars"
+              subtitle="Weekly completion by task type"
+              type="task-completion"
+              taskCompletionData={taskCompletionData[taskFilter]}
+              filter={{
+                label: 'Filter task completion',
+                value: taskFilter,
+                options: taskFilterOptions,
+                onChange: setTaskFilter
+              }}
             />
+          </section>
+
+          <section className="mt-6 grid grid-cols-1 items-stretch gap-5 lg:grid-cols-3">
             <ChartCard
               title="Service Distribution"
               subtitle="Service mix placeholder"
               type="donut"
             />
-          </section>
-
-          <section className="mt-6 grid grid-cols-1 gap-5 xl:grid-cols-2">
             <ActivityCard />
             <ExpiringDocsCard />
           </section>
         </main>
+
+        {isUsersOpen ? (
+          <AllUsersModal
+            users={users}
+            isLoading={isUsersLoading}
+            error={usersError}
+            onClose={() => setIsUsersOpen(false)}
+          />
+        ) : null}
     </DashboardLayout>
   );
 }

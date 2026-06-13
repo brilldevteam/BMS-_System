@@ -4,6 +4,7 @@ import AllJobs from './pages/AllJobs.jsx';
 import AddStaffDocument from './pages/compliance/AddStaffDocument.jsx';
 import Compliance from './pages/Compliance.jsx';
 import ComplianceClient from './pages/compliance/ComplianceClient.jsx';
+import ComplianceClients from './pages/compliance/ComplianceClients.jsx';
 import ComplianceManagement from './pages/compliance/ComplianceManagement.jsx';
 import ComplianceRoles from './pages/compliance/ComplianceRoles.jsx';
 import ComplianceStaffDirectory from './pages/compliance/ComplianceStaffDirectory.jsx';
@@ -14,6 +15,7 @@ import Dashboard from './pages/Dashboard.jsx';
 import DocumentLibrary from './pages/DocumentLibrary.jsx';
 import FinancialReports from './pages/FinancialReports.jsx';
 import ModeSelection from './pages/ModeSelection.jsx';
+import MyRoleClients from './pages/MyRoleClients.jsx';
 import ResourceCenter from './pages/ResourceCenter.jsx';
 import ServicesManagement from './pages/ServicesManagement.jsx';
 import UserManagement from './pages/UserManagement.jsx';
@@ -30,6 +32,7 @@ function App() {
         <Route path="/dashboard/services/add" element={<AddService />} />
         <Route path="/dashboard/create-job" element={<CreateJob />} />
         <Route path="/dashboard/all-jobs" element={<AllJobs />} />
+        <Route path="/dashboard/my-role-clients" element={<MyRoleClients />} />
         <Route path="/compliance" element={<Compliance />} />
         <Route path="/compliance-management" element={<ComplianceManagement />} />
         <Route path="/compliance-management/staff" element={<ComplianceRoles />} />
@@ -46,8 +49,13 @@ function App() {
           element={<ViewStaffDocuments />}
         />
         <Route path="/compliance-management/client" element={<ComplianceClient />} />
+        <Route path="/compliance/clients" element={<ComplianceClients />} />
         <Route
           path="/compliance-management/structure"
+          element={<OrganizationalStructure />}
+        />
+        <Route
+          path="/compliance/organizational-structure"
           element={<OrganizationalStructure />}
         />
         <Route path="/resource-center" element={<ResourceCenter />} />

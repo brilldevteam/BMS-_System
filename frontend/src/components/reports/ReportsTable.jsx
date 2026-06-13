@@ -10,7 +10,7 @@ function ReportsTable({ reports, onDelete }) {
       <div className="border-b border-slate-100 px-5 py-4">
         <h2 className="text-lg font-semibold text-slate-900">Uploaded Reports</h2>
         <p className="mt-1 text-sm font-normal text-slate-500">
-          Static listing backed by the temporary upload API.
+          Financial statement records stored in PostgreSQL.
         </p>
       </div>
 

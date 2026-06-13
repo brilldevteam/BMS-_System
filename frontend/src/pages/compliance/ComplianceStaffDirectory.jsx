@@ -42,6 +42,13 @@ function ComplianceStaffDirectory() {
       return matchesRole && matchesSearch;
     });
   }, [searchTerm, selectedRole, staffRecords]);
+  const roleStaffCount = useMemo(
+    () =>
+      staffRecords.filter(
+        (staff) => selectedRole === 'all' || staff.role === selectedRole
+      ).length,
+    [selectedRole, staffRecords]
+  );
 
   const handleToggleView = (staffId) => {
     setExpandedStaffId((current) => (current === staffId ? null : staffId));
@@ -100,8 +107,8 @@ function ComplianceStaffDirectory() {
           selectedRole={selectedRole}
           onRoleChange={setSelectedRole}
           roles={roles}
-          visibleCount={25}
-          totalCount={23}
+          visibleCount={filteredStaff.length}
+          totalCount={roleStaffCount}
         />
 
         <StaffDirectoryTable

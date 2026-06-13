@@ -18,6 +18,43 @@ body {
     "Segoe UI", sans-serif;
 }
 
+@keyframes job-trends-reveal {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes job-trends-draw {
+  from {
+    stroke-dashoffset: 1;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.job-trends-reveal {
+  transform-box: fill-box;
+  transform-origin: left;
+  animation: job-trends-reveal 900ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.job-trends-line {
+  stroke-dashoffset: 1;
+  animation: job-trends-draw 1100ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .job-trends-reveal,
+  .job-trends-line {
+    animation: none;
+    stroke-dashoffset: 0;
+  }
+}
+
 @layer components {
   .filter-select,
   .form-field {

@@ -1,11 +1,20 @@
 import { useEffect, useMemo, useState } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import EmptyJobsState from '../components/jobs-management/EmptyJobsState.jsx';
+import JobActionModal from '../components/jobs-management/JobActionModal.jsx';
 import JobsFilters from '../components/jobs-management/JobsFilters.jsx';
 import JobsHeader from '../components/jobs-management/JobsHeader.jsx';
 import JobsStats from '../components/jobs-management/JobsStats.jsx';
 import JobsTable from '../components/jobs-management/JobsTable.jsx';
 import DashboardLayout from '../layouts/DashboardLayout.jsx';
-import { deleteJob, getJobs } from '../services/jobsApi.js';
+import { getServices } from '../services/servicesApi.js';
+import { getUsers } from '../services/userManagementApi.js';
+import {
+  cancelJob,
+  deleteJob,
+  getJobs,
+  updateJob
+} from '../services/jobsApi.js';
 
 const initialFilters = {
   search: '',
@@ -58,15 +67,33 @@ function makeCsv(jobs) {
 }
 
 function AllJobs() {
-  const [jobs, setJobs] = useState([]);
+  const location = useLocation();
+  const navigate = useNavigate();
+  const createdJob = location.state?.createdJob;
+  const [jobs, setJobs] = useState(createdJob ? [createdJob] : []);
   const [filters, setFilters] = useState(initialFilters);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState('');
+  const [successMessage, setSuccessMessage] = useState(
+    location.state?.message || ''
+  );
+  const [modal, setModal] = useState({ mode: null, job: null });
+  const [isSaving, setIsSaving] = useState(false);
+  const [actionError, setActionError] = useState('');
+  const [services, setServices] = useState([]);
+  const [users, setUsers] = useState([]);
 
   useEffect(() => {
-    getJobs()
-      .then((data) => {
-        setJobs(data);
+    Promise.all([getJobs(), getServices(), getUsers()])
+      .then(([data, servicesData, usersData]) => {
+        setJobs((currentJobs) => {
+          const jobsById = new Map(
+            [...currentJobs, ...data].map((job) => [job.id, job])
+          );
+          return Array.from(jobsById.values());
+        });
+        setServices(servicesData);
+        setUsers(usersData);
         setError('');
       })
       .catch(() => {
@@ -76,6 +103,14 @@ function AllJobs() {
         setIsLoading(false);
       });
   }, []);
+
+  useEffect(() => {
+    if (!location.state) {
+      return;
+    }
+
+    navigate(location.pathname, { replace: true, state: null });
+  }, [location.pathname, location.state, navigate]);
 
   const visibleJobs = useMemo(() => {
     const search = filters.search.trim().toLowerCase();
@@ -127,6 +162,90 @@ function AllJobs() {
     }
   };
 
+  const replaceJob = (updatedJob) => {
+    setJobs((current) =>
+      current.map((job) => (job.id === updatedJob.id ? updatedJob : job))
+    );
+  };
+
+  const openEditJob = (job) => {
+    setActionError('');
+    setModal({ mode: 'edit', job });
+  };
+
+  const handleAction = async (action, job) => {
+    setActionError('');
+
+    if (action === 'edit') {
+      openEditJob(job);
+      return;
+    }
+
+    if (action === 'cancel') {
+      const confirmed = window.confirm(`Cancel job ${job.jobNumber}?`);
+
+      if (!confirmed) {
+        return;
+      }
+
+      try {
+        const updatedJob = await cancelJob(job.id);
+        replaceJob(updatedJob);
+        setSuccessMessage(`Job ${job.jobNumber} was cancelled.`);
+      } catch (cancelError) {
+        setError(
+          cancelError.response?.data?.message || 'Unable to cancel this job.'
+        );
+      }
+      return;
+    }
+
+    setModal({ mode: action, job });
+  };
+
+  const saveJob = async ({ values, files }) => {
+    setIsSaving(true);
+    setActionError('');
+
+    try {
+      const formData = new FormData();
+      [
+        'jobNumber',
+        'serviceType',
+        'assignedPerson',
+        'jobDetails',
+        'specialDescription',
+        'clientName',
+        'email',
+        'startingPoint',
+        'ckNumber',
+        'contactNumber',
+        'address'
+      ].forEach((field) => formData.append(field, values[field] || ''));
+
+      if (files.proposalDocument) {
+        formData.append('proposalDocument', files.proposalDocument);
+      }
+      if (files.idDocument) {
+        formData.append('idDocument', files.idDocument);
+      }
+      files.otherDocuments.forEach((file) =>
+        formData.append('otherDocuments', file)
+      );
+
+      const updatedJob = await updateJob(values.id, formData);
+      replaceJob(updatedJob);
+      setModal({ mode: null, job: null });
+      setSuccessMessage(`Job ${updatedJob.jobNumber} was updated.`);
+    } catch (updateError) {
+      setActionError(
+        updateError.response?.data?.message || 'Unable to update this job.'
+      );
+    } finally {
+      setIsSaving(false);
+    }
+  };
+
   return (
     <DashboardLayout>
       <main className="mx-auto max-w-7xl px-4 py-7 sm:px-6 lg:px-8">
@@ -141,17 +260,55 @@ function AllJobs() {
             </div>
           ) : null}
 
+          {successMessage ? (
+            <div className="flex items-center justify-between gap-4 rounded-xl border border-emerald-100 bg-emerald-50 px-5 py-4 text-sm font-medium text-emerald-700">
+              <span>{successMessage}</span>
+              <button
+                type="button"
+                className="text-xs font-semibold text-emerald-700 hover:text-emerald-900"
+                onClick={() => setSuccessMessage('')}
+              >
+                Dismiss
+              </button>
+            </div>
+          ) : null}
+
           {isLoading ? (
             <section className="rounded-xl bg-white px-6 py-16 text-center shadow-md shadow-slate-200/80">
               <p className="text-sm font-medium text-slate-500">Loading jobs...</p>
             </section>
           ) : visibleJobs.length > 0 ? (
-            <JobsTable jobs={visibleJobs} onDeleteJob={removeJob} />
+            <JobsTable
+              jobs={visibleJobs}
+              onAction={handleAction}
+              onEditJob={openEditJob}
+              onDeleteJob={removeJob}
+            />
           ) : (
             <EmptyJobsState hasFilters={Boolean(hasFilters)} />
           )}
         </div>
       </main>
+
+      <JobActionModal
+        job={modal.job}
+        mode={modal.mode}
+        onClose={() => {
+          setModal({ mode: null, job: null });
+          setActionError('');
+        }}
+        onSave={saveJob}
+        onEdit={() => openEditJob(modal.job)}
+        onCancelJob={async () => {
+          const job = modal.job;
+          setModal({ mode: null, job: null });
+          await handleAction('cancel', job);
+        }}
+        services={services}
+        users={users}
+        isSaving={isSaving}
+        error={actionError}
+      />
     </DashboardLayout>
   );
 }

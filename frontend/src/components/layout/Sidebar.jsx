@@ -11,7 +11,13 @@ const sidebarGroups = [
   },
   {
     label: 'Role Based',
-    items: [{ label: 'My Role Clients', href: '#', icon: 'clients' }]
+    items: [
+      {
+        label: 'My Role Clients',
+        href: '/dashboard/my-role-clients',
+        icon: 'clients'
+      }
+    ]
   },
   {
     label: 'Management',

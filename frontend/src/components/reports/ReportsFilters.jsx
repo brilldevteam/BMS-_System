@@ -1,6 +1,4 @@
-import mockCompanies from '../../data/mockCompanies.js';
-
-function ReportsFilters({ filters, onChange, onClear }) {
+function ReportsFilters({ companies, filters, onChange, onClear }) {
   const updateFilter = (event) => {
     onChange({
       ...filters,
@@ -42,8 +40,8 @@ function ReportsFilters({ filters, onChange, onClear }) {
           <span className="mb-2 block text-xs font-normal text-slate-900">Company</span>
           <select className="filter-select" name="company" value={filters.company} onChange={updateFilter}>
             <option value="">All Companies</option>
-            {mockCompanies.map((company) => (
-              <option key={company} value={company}>{company}</option>
+            {companies.map((company) => (
+              <option key={company.id} value={company.name}>{company.name}</option>
             ))}
           </select>
         </label>
