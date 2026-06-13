@@ -1,6 +1,7 @@
 import ComplianceRoleCard from '../../components/compliance/ComplianceRoleCard.jsx';
 import ComplianceRolesTopBar from '../../components/compliance/ComplianceRolesTopBar.jsx';
 import { complianceRoles } from '../../data/complianceRoles.js';
+import { complianceStaff } from '../../data/complianceStaff.js';
 
 function ComplianceRoles() {
   return (
@@ -19,7 +20,13 @@ function ComplianceRoles() {
 
         <div className="mt-9 grid grid-cols-1 gap-7 md:grid-cols-2 xl:grid-cols-3">
           {complianceRoles.map((role) => (
-            <ComplianceRoleCard key={role.id} {...role} />
+            <ComplianceRoleCard
+              key={role.id}
+              {...role}
+              memberCount={
+                complianceStaff.filter((staff) => staff.role === role.title).length
+              }
+            />
           ))}
         </div>
       </section>

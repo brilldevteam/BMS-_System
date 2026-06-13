@@ -7,7 +7,7 @@ const activities = [
 
 function ActivityCard() {
   return (
-    <article className="rounded-xl bg-white p-5 shadow-md shadow-slate-200/80">
+    <article className="h-full rounded-xl bg-white p-5 shadow-md shadow-slate-200/80">
       <div className="mb-5">
         <h3 className="text-lg font-semibold text-slate-900">Recent Activity</h3>
         <p className="mt-1 text-xs font-normal text-slate-500">

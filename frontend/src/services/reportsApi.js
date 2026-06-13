@@ -9,6 +9,11 @@ export async function getReports() {
   return response.data.reports;
 }
 
+export async function getReportCompanies() {
+  const response = await api.get('/reports/companies');
+  return response.data.companies;
+}
+
 export async function uploadReports(formData) {
   const response = await api.post('/reports/upload', formData, {
     headers: {

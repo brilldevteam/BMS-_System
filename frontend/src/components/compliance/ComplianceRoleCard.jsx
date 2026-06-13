@@ -31,17 +31,17 @@ function ComplianceRoleCard({
   id,
   title,
   subtitle,
-  membersLabel,
-  badgeCount,
+  memberCount,
   icon,
   accent
 }) {
   const Icon = iconMap[icon];
+  const membersLabel = `${memberCount} ${memberCount === 1 ? 'member' : 'members'}`;
 
   return (
     <article className="relative rounded-2xl border border-slate-200 bg-white p-6 shadow-lg shadow-slate-200/80 transition duration-300 hover:-translate-y-1 hover:shadow-xl">
       <span className="absolute right-6 top-6 flex h-8 w-8 items-center justify-center rounded-full bg-emerald-100 text-sm font-bold text-emerald-700">
-        {badgeCount}
+        {memberCount}
       </span>
 
       <div

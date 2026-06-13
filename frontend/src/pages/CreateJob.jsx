@@ -162,13 +162,21 @@ function CreateJob() {
     setSubmitError('');
 
     try {
-      await createJob(formData);
+      const createdJob = await createJob(formData);
       setValues(initialValues);
       setDocuments(initialDocuments);
       setErrors({});
-      navigate('/dashboard/all-jobs');
-    } catch {
-      setSubmitError('Unable to create job. Please check the form and try again.');
+      navigate('/dashboard/all-jobs', {
+        state: {
+          createdJob,
+          message: `Job ${createdJob.jobNumber} was created successfully.`
+        }
+      });
+    } catch (error) {
+      setSubmitError(
+        error.response?.data?.message ||
+          'Unable to create job. Please check the form and try again.'
+      );
     } finally {
       setIsSubmitting(false);
     }

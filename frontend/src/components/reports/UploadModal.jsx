@@ -2,15 +2,14 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import AppIcon from '../icons/AppIcon.jsx';
 import FieldLabel from '../common/FieldLabel.jsx';
-import mockCompanies from '../../data/mockCompanies.js';
 import FileUploadZone from './FileUploadZone.jsx';
 
-function UploadModal({ isOpen, isUploading, onClose, onUpload }) {
+function UploadModal({ companies, isOpen, isUploading, onClose, onUpload }) {
   const [files, setFiles] = useState([]);
   const [fileError, setFileError] = useState('');
   const { register, handleSubmit, reset, formState: { errors } } = useForm({
     defaultValues: {
-      company: '',
+      companyId: '',
       year: new Date().getFullYear(),
       description: ''
     }
@@ -33,8 +32,12 @@ function UploadModal({ isOpen, isUploading, onClose, onUpload }) {
       return;
     }
 
-    await onUpload(values, files);
-    closeModal();
+    try {
+      await onUpload(values, files);
+      closeModal();
+    } catch {
+      // The parent displays the API error and keeps the form open for correction.
+    }
   };
 
   return (
@@ -69,14 +72,14 @@ function UploadModal({ isOpen, isUploading, onClose, onUpload }) {
               <FieldLabel required>Company</FieldLabel>
               <select
                 className="form-field mt-2"
-                {...register('company', { required: 'Company is required' })}
+                {...register('companyId', { required: 'Company is required' })}
               >
                 <option value="">Select company</option>
-                {mockCompanies.map((company) => (
-                  <option key={company} value={company}>{company}</option>
+                {companies.map((company) => (
+                  <option key={company.id} value={company.id}>{company.name}</option>
                 ))}
               </select>
-              {errors.company ? <span className="form-error">{errors.company.message}</span> : null}
+              {errors.companyId ? <span className="form-error">{errors.companyId.message}</span> : null}
             </label>
 
             <label className="block">

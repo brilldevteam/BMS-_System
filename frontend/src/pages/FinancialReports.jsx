@@ -6,7 +6,12 @@ import ReportsTable from '../components/reports/ReportsTable.jsx';
 import StatsCards from '../components/reports/StatsCards.jsx';
 import UploadModal from '../components/reports/UploadModal.jsx';
 import DashboardLayout from '../layouts/DashboardLayout.jsx';
-import { deleteReport, getReports, uploadReports } from '../services/reportsApi.js';
+import {
+  deleteReport,
+  getReportCompanies,
+  getReports,
+  uploadReports
+} from '../services/reportsApi.js';
 
 const defaultFilters = {
   search: '',
@@ -20,14 +25,18 @@ const defaultFilters = {
 
 function FinancialReports() {
   const [reports, setReports] = useState([]);
+  const [companies, setCompanies] = useState([]);
   const [filters, setFilters] = useState(defaultFilters);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isUploading, setIsUploading] = useState(false);
   const [error, setError] = useState('');
 
   useEffect(() => {
-    getReports()
-      .then(setReports)
+    Promise.all([getReports(), getReportCompanies()])
+      .then(([nextReports, nextCompanies]) => {
+        setReports(nextReports);
+        setCompanies(nextCompanies);
+      })
       .catch(() => setError('Unable to load reports. Make sure the backend is running.'));
   }, []);
 
@@ -98,7 +107,7 @@ function FinancialReports() {
 
   const handleUpload = async (values, files) => {
     const formData = new FormData();
-    formData.append('company', values.company);
+    formData.append('companyId', values.companyId);
     formData.append('year', values.year);
     formData.append('description', values.description || '');
     files.forEach((file) => formData.append('files', file));
@@ -109,8 +118,13 @@ function FinancialReports() {
     try {
       const report = await uploadReports(formData);
       setReports((currentReports) => [report, ...currentReports]);
-    } catch {
-      setError('Upload failed. Please check the file type, file size, and backend server.');
+      setFilters(defaultFilters);
+    } catch (uploadError) {
+      setError(
+        uploadError.response?.data?.message ||
+          'Upload failed. Please check the file type, file size, and backend server.'
+      );
+      throw uploadError;
     } finally {
       setIsUploading(false);
     }
@@ -160,6 +174,7 @@ function FinancialReports() {
         <StatsCards reports={reports} />
 
         <ReportsFilters
+          companies={companies}
           filters={filters}
           onChange={setFilters}
           onClear={() => setFilters(defaultFilters)}
@@ -178,6 +193,7 @@ function FinancialReports() {
         )}
 
         <UploadModal
+          companies={companies}
           isOpen={isModalOpen}
           isUploading={isUploading}
           onClose={() => setIsModalOpen(false)}

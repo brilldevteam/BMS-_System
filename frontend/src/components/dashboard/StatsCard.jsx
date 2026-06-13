@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 const icons = {
   jobs: (
     <>
@@ -30,9 +32,9 @@ const icons = {
   )
 };
 
-function StatsCard({ title, value, hint, tone, icon }) {
-  return (
-    <article className="rounded-xl bg-white p-5 shadow-md shadow-slate-200/80 transition hover:-translate-y-0.5 hover:shadow-lg">
+function StatsCard({ title, value, hint, tone, icon, href, onClick }) {
+  const content = (
+    <>
       <div className="flex items-center justify-between gap-4">
         <div>
           <p className="text-xs font-normal text-slate-500">{title}</p>
@@ -49,8 +51,38 @@ function StatsCard({ title, value, hint, tone, icon }) {
         </span>
       </div>
       <p className={`mt-4 text-xs font-medium ${tone.text}`}>{hint}</p>
-    </article>
+    </>
   );
+
+  const cardClassName =
+    'block h-full rounded-xl bg-white p-5 shadow-md shadow-slate-200/80 transition hover:-translate-y-0.5 hover:shadow-lg';
+
+  if (href) {
+    return (
+      <Link
+        to={href}
+        className={`${cardClassName} cursor-pointer focus:outline-none focus:ring-4 focus:ring-violet-100`}
+        aria-label={`Open All Jobs from ${title}`}
+      >
+        {content}
+      </Link>
+    );
+  }
+
+  if (onClick) {
+    return (
+      <button
+        type="button"
+        onClick={onClick}
+        className={`${cardClassName} w-full cursor-pointer text-left focus:outline-none focus:ring-4 focus:ring-violet-100`}
+        aria-label={`Open ${title}`}
+      >
+        {content}
+      </button>
+    );
+  }
+
+  return <article className={cardClassName}>{content}</article>;
 }
 
 export default StatsCard;

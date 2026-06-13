@@ -19,6 +19,22 @@ export async function createJob(formData) {
   return response.data.job;
 }
 
+export async function updateJob(jobId, data) {
+  const response = await api.put(`/jobs/${jobId}`, data, {
+    headers: data instanceof FormData
+      ? { 'Content-Type': 'multipart/form-data' }
+      : undefined
+  });
+  return response.data.job;
+}
+
+export async function cancelJob(jobId) {
+  const response = await api.patch(`/jobs/${jobId}/status`, {
+    status: 'Cancelled'
+  });
+  return response.data.job;
+}
+
 export async function deleteJob(jobId) {
   await api.delete(`/jobs/${jobId}`);
 }
